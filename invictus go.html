@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инвиктус Гоу Спортклуб Алматы</title>
+    <style>
+        /* Основные стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Шапка страницы */
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        header .logo img {
+            max-width: 200px;
+        }
+
+        header .info {
+            max-width: 500px;
+        }
+
+        header .info h1 {
+            font-size: 30px;
+        }
+
+        header .info p {
+            font-size: 18px;
+        }
+
+        /* Кнопка перехода на карту */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #007BFF;
+        }
+
+        footer button {
+            padding: 10px 20px;
+            background-color: #FFD700;
+            border: none;
+            color: black;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        footer button:hover {
+            background-color: #FF8C00;
+        }
+
+        /* Стили для карты */
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+    <script>
+        function initMap() {
+            // Указываем точки расположения клуба
+            const locations = [
+                { lat: 43.2220, lng: 76.8512, title: 'Инвиктус Гоу - Алматы 1', url: 'http://example1.com' },
+                { lat: 43.2350, lng: 76.8850, title: 'Инвиктус Гоу - Алматы 2', url: 'http://example2.com' },
+                { lat: 43.2550, lng: 76.9400, title: 'Инвиктус Гоу - Алматы 3', url: 'http://example3.com' }
+            ];
+
+            const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: { lat: 43.2220, lng: 76.8512 },  // Центр карты - Алматы
+            });
+
+            locations.forEach(function(location) {
+                const marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    title: location.title,
+                });
+
+                const infoWindow = new google.maps.InfoWindow({
+                    content: `<a href="${location.url}" target="_blank">${location.title}</a>`
+                });
+
+                marker.addListener('mouseover', function() {
+                    infoWindow.open(map, marker);
+                });
+
+                marker.addListener('mouseout', function() {
+                    infoWindow.close();
+                });
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Главная страница -->
+    <header>
+        <div class="logo">
+            <img src="C:\Users\Admin\Desktop\1632023vcbc017b7.jpg" alt="Инвиктус Гоу Логотип">
+        </div>
+        <div class="info">
+            <h1>Инвиктус Гоу Спортклуб Алматы</h1>
+            <p>Инвиктус Гоу — это современный спортивный клуб, предоставляющий своим членам возможности для тренировки и соревнований в различных спортивных дисциплинах. Мы гордимся нашей командой, которая добивается выдающихся результатов на международных аренах.</p>
+            <p>Наш клуб предлагает широкие возможности для активного отдыха и улучшения физических кондиций. Присоединяйтесь к нам!</p>
+        </div>
+    </header>
+
+
+    <footer>
+        <button onclick="window.location.href='#mapPage'">Перейти на карту клубов</button>
+    </footer>
+
+    <!-- Страница с картой -->
+    <section id="mapPage">
+<map name="map1">
+	<area shape="CIRCLE" coords="745,232,25" href="https://www.instagram.com/invictusgo?igsh=MWh0dzAwcHBjODhicQ==" title="Инвиктус" />
+	<area shape="CIRCLE" coords="838,371,25" href="https://www.instagram.com/invictusgo?igsh=MWh0dzAwcHBjODhicQ==" title="Инвиктус" />
+	<area shape="CIRCLE" coords="359,360,23" href="https://www.instagram.com/invictusgo?igsh=MWh0dzAwcHBjODhicQ==" title="Инвиктус" />
+	<area shape="CIRCLE" coords="157,560,30" href="https://www.instagram.com/invictusgo?igsh=MWh0dzAwcHBjODhicQ==" title="Инвиктус" />
+	<area shape="CIRCLE" coords="421,597,24" href="https://www.instagram.com/invictusgo?igsh=MWh0dzAwcHBjODhicQ==" title="Инвиктус" />
+	<area shape="CIRCLE" coords="817,562,27" href="https://www.instagram.com/invictusgo?igsh=MWh0dzAwcHBjODhicQ==" title="Инвиктус" />
+</map>
+<img src="C:\Users\Admin\Desktop\2024-11-24_15-59-32.png" usemap="#map1" border="0" />
+
+
+        <h2 style="text-align:center; padding: 20px;">Карта расположения клубов Инвиктус Гоу в Алматы</h2>
+        <div id="map"></div>
+    </section>
+
+</body>
+</html>
